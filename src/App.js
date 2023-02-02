@@ -1,7 +1,26 @@
 import React from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Root from "./components/root";
+import ErrorPage from "./errorPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage /> 
+  },
+]);
 
 const App = () => {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  console.log('run')
+  return (
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  );
 };
 
 export default App;
